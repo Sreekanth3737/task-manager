@@ -1,0 +1,60 @@
+@import "../../../styles/variables.scss";
+
+@mixin button-styles($bg-color) {
+  background-color: $bg-color;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: darken($bg-color, 10%);
+  }
+  &:disabled {
+    background-color: lighten($bg-color, 10%);
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+@mixin button-size($padding, $font-size) {
+  font-size: $font-size;
+  padding: $padding;
+}
+
+.primary {
+  @include button-styles($primary-color);
+}
+
+.secondary {
+  @include button-styles($secondary-color);
+}
+
+.success {
+  @include button-styles($success-color);
+}
+
+.danger {
+  @include button-styles($danger-color);
+}
+
+.warning {
+  @include button-styles($warning-color);
+}
+
+.info {
+  @include button-styles($info-color);
+}
+
+.samall {
+  @include button-size(10px 15px, $font-small);
+}
+
+.medium {
+  @include button-size(8px 20px, $font-medium);
+}
+
+.large {
+  @include button-size(15px 30px, $font-large);
+}

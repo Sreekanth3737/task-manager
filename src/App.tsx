@@ -1,16 +1,9 @@
-import Button from "./components/atoms/Button/Button";
-
+import Dashboard from "./pages/Dashboard/Dashboard";
+import "./App.css";
 function App() {
   return (
     <>
-      <Button
-        variant="success"
-        size="medium"
-        onClick={() => console.log("clicked")}
-        text="Add"
-        type="button"
-        disabled={false}
-      />
+      <Dashboard />
     </>
   );
 }

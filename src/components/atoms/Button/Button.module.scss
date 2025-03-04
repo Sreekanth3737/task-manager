@@ -1,60 +1,84 @@
 @import "../../../styles/variables.scss";
 
-@mixin button-styles($bg-color) {
-  background-color: $bg-color;
-  color: white;
-  border: none;
-  border-radius: 5px;
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  border-radius: $border-radius;
+  transition: all 0.2s ease;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  border: none;
 
-  &:hover {
-    background-color: darken($bg-color, 10%);
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba($primary-color, 0.3);
   }
+
   &:disabled {
-    background-color: lighten($bg-color, 10%);
+    opacity: 0.6;
     cursor: not-allowed;
-    opacity: 0.5;
   }
-}
-
-@mixin button-size($padding, $font-size) {
-  font-size: $font-size;
-  padding: $padding;
 }
 
 .primary {
-  @include button-styles($primary-color);
+  background-color: $primary-color;
+  color: white;
+
+  &:hover:not(:disabled) {
+    background-color: $primary-dark;
+  }
 }
 
 .secondary {
-  @include button-styles($secondary-color);
+  background-color: $secondary-light;
+  color: $secondary-color;
+
+  &:hover:not(:disabled) {
+    background-color: darken($secondary-light, 5%);
+  }
 }
 
 .success {
-  @include button-styles($success-color);
+  background-color: $success-color;
+  color: white;
+
+  &:hover:not(:disabled) {
+    background-color: darken($success-color, 10%);
+  }
 }
 
 .danger {
-  @include button-styles($danger-color);
+  background-color: $danger-color;
+  color: white;
+
+  &:hover:not(:disabled) {
+    background-color: darken($danger-color, 10%);
+  }
 }
 
-.warning {
-  @include button-styles($warning-color);
-}
-
-.info {
-  @include button-styles($info-color);
-}
-
-.samall {
-  @include button-size(10px 15px, $font-small);
+.small {
+  padding: 6px 12px;
+  font-size: 14px;
 }
 
 .medium {
-  @include button-size(8px 20px, $font-medium);
+  padding: 8px 16px;
+  font-size: 16px;
 }
 
 .large {
-  @include button-size(15px 30px, $font-large);
+  padding: 10px 20px;
+  font-size: 18px;
+}
+
+.iconButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  svg,
+  img {
+    margin-right: 8px;
+  }
 }
